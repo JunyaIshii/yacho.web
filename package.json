@@ -1,6 +1,9 @@
 {
     "private": true,
-    "scripts": {
+    
+    "engines": {
+        "node": "18.14.2"
+    },"scripts": {
         "dev": "vite",
         "build": "vite build",
         "heroku-postbuild": "npm run build"
