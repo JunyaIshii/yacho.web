@@ -32,16 +32,21 @@ class SiteMemberController extends Controller
             ->orderBy('site_members.id', 'asc')
             ->get();
 
-        $result = $data->map(function ($item) {
-            return [
-                'siteMemberId' => $item->id,
-                'siteId' => $item->site_id,
-                'siteName' => $item->site_name,
-                'authority' => $item->authority,
-            ];
-        });
+        if ($data->isEmpty()) {
+            // 空の結果を返す
+            return response()->json([]);
+        } else {
+            $result = $data->map(function ($item) {
+                return [
+                    'siteMemberId' => $item->id,
+                    'siteId' => $item->site_id,
+                    'siteName' => $item->site_name,
+                    'authority' => $item->authority,
+                ];
+            });
 
-        return response()->json($result);
+            return response()->json($result);
+        }
     }
     public function siteMembers(Request $request)
     {
@@ -60,16 +65,21 @@ class SiteMemberController extends Controller
             ->orderBy('site_members.id', 'asc')
             ->get();
 
-        $result = $data->map(function ($item) {
-            return [
-                'siteMemberId' => $item->id,
-                'userName' => $item->name,
-                'userEmail' => $item->email,
-                'authority' => $item->authority,
-            ];
-        });
+        if ($data->isEmpty()) {
+            // 空の結果を返す
+            return response()->json([]);
+        } else {
+            $result = $data->map(function ($item) {
+                return [
+                    'siteMemberId' => $item->id,
+                    'userName' => $item->name,
+                    'userEmail' => $item->email,
+                    'authority' => $item->authority,
+                ];
+            });
 
-        return response()->json($result);
+            return response()->json($result);
+        }
     }
 
     /**
@@ -192,15 +202,20 @@ class SiteMemberController extends Controller
             ->orderBy('site_members.id', 'asc')
             ->get();
 
-        $result = $data->map(function ($item) {
-            return [
-                'siteMemberId' => $item->id,
-                'userName' => $item->name,
-                'userEmail' => $item->email,
-                'authority' => $item->authority,
-            ];
-        });
+        if ($data->isEmpty()) {
+            // 空の結果を返す
+            return response()->json([]);
+        } else {
+            $result = $data->map(function ($item) {
+                return [
+                    'siteMemberId' => $item->id,
+                    'userName' => $item->name,
+                    'userEmail' => $item->email,
+                    'authority' => $item->authority,
+                ];
+            });
 
-        return response()->json($result);
+            return response()->json($result);
+        }
     }
 }

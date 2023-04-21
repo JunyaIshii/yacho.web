@@ -59,7 +59,6 @@ class SiteController extends Controller
             'authority' => 1,
         ]);
 
-        // indexメソッドと同じ形式でJSONレスポンスを返す
         $data = DB::table('site_members')
             ->Join('sites', 'site_members.site_id', '=', 'sites.id')
             ->Join('users', 'site_members.user_id', '=', 'users.id')
@@ -72,16 +71,21 @@ class SiteController extends Controller
             )
             ->get();
 
-        $result = $data->map(function ($item) {
-            return [
-                'siteMemberId' => $item->id,
-                'siteId' => $item->site_id,
-                'siteName' => $item->site_name,
-                'authority' => $item->authority,
-            ];
-        });
+        if ($data->isEmpty()) {
+            // 空の結果を返す
+            return response()->json([]);
+        } else {
+            $result = $data->map(function ($item) {
+                return [
+                    'siteMemberId' => $item->id,
+                    'siteId' => $item->site_id,
+                    'siteName' => $item->site_name,
+                    'authority' => $item->authority,
+                ];
+            });
 
-        return response()->json($result);
+            return response()->json($result);
+        }
     }
 
     /**

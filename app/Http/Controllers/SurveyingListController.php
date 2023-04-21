@@ -36,19 +36,24 @@ class SurveyingListController extends Controller
             ->orderBy('surveying_lists.created_at', 'desc')
             ->get();
 
-        $result = $data->map(function ($item) {
-            $createdAt = Carbon::parse($item->created_at)->format('Y/m/d');
-            return [
-                'surveyingListId' => $item->surveying_list_id,
-                'surveyingName' => $item->surveying_name,
-                'weather' => $item->weather,
-                'author' => $item->site_member_id,
-                'authorName' => $item->name,
-                'createdAt' => $createdAt,
-            ];
-        });
+        if ($data->isEmpty()) {
+            // 空の結果を返す
+            return response()->json([]);
+        } else {
+            $result = $data->map(function ($item) {
+                $createdAt = Carbon::parse($item->created_at)->format('Y/m/d');
+                return [
+                    'surveyingListId' => $item->surveying_list_id,
+                    'surveyingName' => $item->surveying_name,
+                    'weather' => $item->weather,
+                    'author' => $item->site_member_id,
+                    'authorName' => $item->name,
+                    'createdAt' => $createdAt,
+                ];
+            });
 
-        return response()->json($result);
+            return response()->json($result);
+        }
     }
 
     /**
@@ -182,18 +187,23 @@ class SurveyingListController extends Controller
             ->orderBy('surveying_lists.created_at', 'desc')
             ->get();
 
-        $result = $data->map(function ($item) {
-            $createdAt = Carbon::parse($item->created_at)->format('Y/m/d');
-            return [
-                'surveyingListId' => $item->surveying_list_id,
-                'surveyingName' => $item->surveying_name,
-                'weather' => $item->weather,
-                'author' => $item->site_member_id,
-                'authorName' => $item->name,
-                'createdAt' => $createdAt,
-            ];
-        });
+        if ($data->isEmpty()) {
+            // 空の結果を返す
+            return response()->json([]);
+        } else {
+            $result = $data->map(function ($item) {
+                $createdAt = Carbon::parse($item->created_at)->format('Y/m/d');
+                return [
+                    'surveyingListId' => $item->surveying_list_id,
+                    'surveyingName' => $item->surveying_name,
+                    'weather' => $item->weather,
+                    'author' => $item->site_member_id,
+                    'authorName' => $item->name,
+                    'createdAt' => $createdAt,
+                ];
+            });
 
-        return response()->json($result);
+            return response()->json($result);
+        }
     }
 }
