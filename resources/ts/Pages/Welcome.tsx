@@ -136,6 +136,9 @@ export const Welcome = ({ pageTitle }) => {
                                 アカウントをお持ちでない場合{" "}
                                 <Link
                                     to={"Register"}
+                                    onClick={() => {
+                                        dispatch(setError(null));
+                                    }}
                                     className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
                                 >
                                     登録
@@ -146,6 +149,7 @@ export const Welcome = ({ pageTitle }) => {
                             <p className="text-center text-sm text-gray-500">
                                 <button
                                     onClick={() => {
+                                        dispatch(setError(null));
                                         setSendEmailModal(true);
                                     }}
                                     className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
