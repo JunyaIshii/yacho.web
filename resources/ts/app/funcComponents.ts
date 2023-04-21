@@ -95,6 +95,5 @@ export const createOutputExcelData = (inputArray: surveyingData[]) => {
 
         outputArray.push(newItem);
     }
-    console.log(outputArray);
     return outputArray;
 };
