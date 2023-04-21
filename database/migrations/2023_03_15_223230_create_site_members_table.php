@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('authority');
             $table->timestamps();
+            $table->unique(['user_id', 'site_id']);
         });
     }
 

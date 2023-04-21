@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('surveying_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('surveying_name');
+            $table->string('surveying_name')->nullable();
             $table->integer('weather');
             $table->bigInteger('site_member_id');
             $table->foreign('site_member_id')->references('id')->on('site_members');

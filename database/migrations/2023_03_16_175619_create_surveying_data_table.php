@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('surveying_data', function (Blueprint $table) {
             $table->id();
-            $table->string('surveying_data_name');
+            $table->string('surveying_data_name')->nullable();
             $table->bigInteger('surveying_list_id');
             $table->foreign('surveying_list_id')->references('id')->on('surveying_lists');
             $table->integer('bs')->nullable();
-            $table->integer('ih');
             $table->integer('fs')->nullable();
-            $table->integer('gh');
+            $table->integer('gh')->nullable();
             $table->timestamps();
         });
     }
