@@ -2,7 +2,7 @@ import { useAppDispatch } from "../../../app/hooks";
 import {
     openRemoveUserModal,
     updateSiteMember,
-} from "../../../features/Slice/SiteEditSlice";
+} from "../../../features/slice/SiteEditSlice";
 import React, { useEffect, useRef, useState } from "react";
 import { siteMember } from "../../../features/entity/SiteEdit";
 
