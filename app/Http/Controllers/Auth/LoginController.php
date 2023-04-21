@@ -38,11 +38,5 @@ final class LoginController extends Controller
             ];
             return new JsonResponse($response);
         }
-
-        // エラーメッセージと HTTP ステータスコードを設定して JsonResponse を返す
-        // $errorResponse = [
-        //     'message' => 'メールアドレスまたはパスワードが間違っています。',
-        // ];
-        // return new JsonResponse($errorResponse, Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 }

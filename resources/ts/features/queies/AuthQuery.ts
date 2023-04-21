@@ -30,6 +30,7 @@ const useRegister = () => {
     return useMutation(register, {
         onSuccess: (user) => {
             dispatch(isLogin());
+            console.log(user);
             dispatch(setUser(user.user));
             dispatch(fetchUserInfo(user.user.id));
             setCookie("authUser", user.user, { expires });

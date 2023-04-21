@@ -22,8 +22,10 @@ final class RegisterController extends Controller
         $user->password = bcrypt($request->input('password'));
         $user->save();
 
-        return new JsonResponse([
-            'message' => 'Registered.',
-        ]);
+        $response = [
+            'user' => $user,
+        ];
+
+        return new JsonResponse($response);
     }
 }
