@@ -1,18 +1,28 @@
 import SurveyingData from "../Components/modules/Surveying/SurveyingData";
 import { SurveyingDataNavbar } from "../Components/modules/Navbar/SurveyingDataNavbar";
 import React, { useEffect, useState } from "react";
-import { useAppSelector } from "../app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../features/store";
 import { userInfo } from "../features/entity/User";
 import { surveyingData } from "../features/entity/SurveyingData";
 import { surveyingList } from "../features/entity/SurveyingList";
 import { Helmet } from "react-helmet";
+import { fetchSurveyingData } from "../features/slice/SurveyingDataSlice";
 
 export const Surveying = ({ pageTitle }) => {
+    const dispatch = useAppDispatch();
+
     const { surveyingData, selectedSurveyingList } = useAppSelector(
         (state: RootState) => state.surveyingData
     );
     const [ihValues, setIhValues] = useState<(number | null)[]>([]);
+
+    useEffect(() => {
+        if (selectedSurveyingList) {
+            dispatch(fetchSurveyingData(selectedSurveyingList.surveyingListId));
+        }
+    }, []);
+
     useEffect(() => {
         const newIhValues: (number | null)[] = [];
         let previousIh: number | null = null;

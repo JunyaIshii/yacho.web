@@ -49,7 +49,6 @@ const SLRecord = ({
     const handleClickLink = () => {
         history.push("/SurveyingData");
         dispatch(selectSurveyingList({ surveyingListId, surveyingName }));
-        dispatch(fetchSurveyingData(surveyingListId));
     };
 
     const onSubmit = () => {

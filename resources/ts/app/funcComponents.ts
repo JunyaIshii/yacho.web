@@ -82,22 +82,19 @@ export const createOutputExcelData = (inputArray: surveyingData[]) => {
         if (currentItem.bs && currentItem.gh) {
             lastIh = Number(currentItem.bs) + Number(currentItem.gh);
             newItem.ih = lastIh;
+            newItem.gh = currentItem.gh;
         } else if (currentItem.fs) {
             newItem.ih = lastIh;
-        } else {
-            newItem.ih = "";
-        }
-
-        if (currentItem.fs) {
             newItem.gh = newItem.ih
                 ? Number(newItem.ih) - Number(currentItem.fs)
                 : "";
         } else {
+            newItem.ih = "";
             newItem.gh = "";
         }
 
         outputArray.push(newItem);
     }
-
+    console.log(outputArray);
     return outputArray;
 };
