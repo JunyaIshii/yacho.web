@@ -11,7 +11,9 @@ export const Menu = ({ pageTitle }) => {
     const { removeModal } = useAppSelector(
         (state: RootState) => state.surveyingList
     );
-    const { addSiteModal } = useAppSelector((state: RootState) => state.main);
+    const { addSiteModal, selectedSite } = useAppSelector(
+        (state: RootState) => state.main
+    );
 
     return (
         <>
@@ -21,7 +23,7 @@ export const Menu = ({ pageTitle }) => {
             {removeModal.isOpen && <RemoveCheckModal />}
             {addSiteModal && <AddModal />}
             <MenuNavbar />
-            <SurveyingList />
+            {selectedSite.siteId && <SurveyingList />}
         </>
     );
 };
