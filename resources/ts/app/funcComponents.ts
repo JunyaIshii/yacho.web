@@ -61,7 +61,7 @@ export const outputExcel = async (
 };
 
 //ihの値を算出し新たな配列を作成する関数
-export const createOutputExcelData = (inputArray: surveyingData[]) => {
+export const createFormalSurveyingData = (inputArray: surveyingData[]) => {
     let outputArray: outputExcelData[] = [];
     let lastIh = 0;
 

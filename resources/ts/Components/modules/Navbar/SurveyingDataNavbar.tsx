@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import {
-    createOutputExcelData,
+    createFormalSurveyingData,
     outputExcel,
 } from "../../../app/funcComponents";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
@@ -34,7 +34,7 @@ export const SurveyingDataNavbar = ({
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         if (surveyingData && selectedSurveyingList) {
-            const newArray = createOutputExcelData(surveyingData);
+            const newArray = createFormalSurveyingData(surveyingData);
             outputExcel(
                 e,
                 selectedSurveyingList.selectedSurveyingListName,
