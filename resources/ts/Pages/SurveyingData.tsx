@@ -48,7 +48,6 @@ export const Surveying = ({ pageTitle }) => {
             }
         });
         setIhValues(newIhValues);
-        console.log("dev");
     }, [surveyingData]);
 
     const handleIhValuesChange = (index: number, ihValue: number | null) => {

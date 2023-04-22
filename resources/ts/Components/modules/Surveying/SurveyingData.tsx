@@ -23,15 +23,18 @@ const SurveyingData: React.FC<Props> = ({
     const [surveyingDataName, setSurveyingDataName] = useState<string | null>(
         data.surveyingDataName
     );
+
+    const GH = data.fs && ihValue ? ihValue - data.fs : data.gh;
+
     const [bs, setBs] = useState<number | null>(data.bs);
     const [fs, setFs] = useState<number | null>(data.fs);
-    const [gh, setGh] = useState<number | null>(data.gh);
+    const [gh, setGh] = useState<number | null>(GH);
 
     useEffect(() => {
         setSurveyingDataName(data.surveyingDataName);
         setBs(data.bs);
         setFs(data.fs);
-        setGh(data.gh);
+        setGh(GH);
     }, [data]);
 
     useEffect(() => {
