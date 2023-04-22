@@ -71,7 +71,7 @@ export const AddModal = () => {
                     <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
                 </div>
 
-                <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
+                <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all w-5/6 md:w-3/5">
                     <form onSubmit={handleSubmit(doneDispatch)}>
                         <div className="px-6 pt-4">
                             <p className="text-gray-700 text-base">

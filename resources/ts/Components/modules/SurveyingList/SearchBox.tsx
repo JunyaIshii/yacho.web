@@ -18,7 +18,7 @@ export const SearchBox = () => {
     };
 
     return (
-        <div className="relative flex items-center">
+        <div className="w-1/2 sm:w-2/5 relative flex items-center">
             <span className="absolute">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
