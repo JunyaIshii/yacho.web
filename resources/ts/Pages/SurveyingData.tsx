@@ -9,9 +9,14 @@ import { surveyingList } from "../features/entity/SurveyingList";
 import { Helmet } from "react-helmet";
 import { fetchSurveyingData } from "../features/slice/SurveyingDataSlice";
 import { useParams } from "react-router-dom";
+import { Loading } from "../Components/Loading";
 
 export const Surveying = ({ pageTitle }) => {
     const dispatch = useAppDispatch();
+    const { loading } = useAppSelector(
+        (state: RootState) => state.surveyingData
+    );
+
     const { surveyingListId, surveyingName } = useParams<{
         surveyingListId: string;
         surveyingName: string;
@@ -145,6 +150,7 @@ export const Surveying = ({ pageTitle }) => {
                         )}
                     </tbody>
                 </table>
+                {loading && <Loading />}
             </section>
         </>
     );

@@ -58,9 +58,6 @@ const surveyingDataSlice = createSlice({
         resetSurveyingData: () => {
             return initialState;
         },
-        setPreviousIh: (state, actions) => {
-            state.previousIh = actions.payload;
-        },
     },
     extraReducers: (builder) => {
         builder.addCase(resetState, () => {
@@ -95,15 +92,14 @@ const surveyingDataSlice = createSlice({
             .addCase(updateSurveyingData.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message;
-                console.log(state.error);
             })
             //updateSurveyingDataが実行中の場合
             .addCase(updateSurveyingData.pending, (state) => {
-                state.loading = true;
+                state.loading = false;
                 state.error = null;
             });
     },
 });
 
-export const { resetSurveyingData, setPreviousIh } = surveyingDataSlice.actions;
+export const { resetSurveyingData } = surveyingDataSlice.actions;
 export default surveyingDataSlice.reducer;

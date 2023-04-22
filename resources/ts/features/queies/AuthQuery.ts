@@ -23,7 +23,7 @@ const isErrorResponse = (obj: any): obj is ErrorResponse => {
 
 const useRegister = () => {
     const dispatch = useAppDispatch();
-    const [cookies, setCookie] = useCookies(["authUser"]);
+    const [cookies, setCookie] = useCookies(["lrt"]);
     const expires = new Date();
     expires.setDate(expires.getDate() + 7);
 
@@ -33,7 +33,7 @@ const useRegister = () => {
             console.log(user);
             dispatch(setUser(user.user));
             dispatch(fetchUserInfo(user.user.id));
-            setCookie("authUser", user.user, { expires });
+            setCookie("lrt", user.user, { expires });
         },
         onError: (error: AxiosError) => {
             if (isErrorResponse(error.response?.data)) {
@@ -48,7 +48,7 @@ const useRegister = () => {
 
 const useLogin = () => {
     const dispatch = useAppDispatch();
-    const [cookies, setCookie] = useCookies(["authUser"]);
+    const [cookies, setCookie] = useCookies(["lrt"]);
     const expires = new Date();
     expires.setDate(expires.getDate() + 7);
 
@@ -57,7 +57,7 @@ const useLogin = () => {
             dispatch(isLogin());
             dispatch(setUser(user.user));
             dispatch(fetchUserInfo(user.user.id));
-            setCookie("authUser", user.user, { expires });
+            setCookie("lrt", user.user, { expires });
         },
         onError: () => {
             dispatch(
@@ -69,14 +69,14 @@ const useLogin = () => {
 
 const useLogout = () => {
     const dispatch = useAppDispatch();
-    const [cookies, setCookie, removeCookie] = useCookies(["authUser"]);
+    const [cookies, setCookie, removeCookie] = useCookies(["lrt"]);
 
     return useMutation(logout, {
         onSuccess: () => {
             dispatch(isLogout());
             dispatch(removeUser());
             dispatch(removeUserInfo());
-            removeCookie("authUser");
+            removeCookie("lrt");
         },
     });
 };

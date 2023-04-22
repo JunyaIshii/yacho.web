@@ -24,13 +24,13 @@ const App = () => {
 
     const [isReady, setIsReady] = useState(false);
 
-    const [cookies] = useCookies(["authUser"]);
+    const [cookies] = useCookies(["lrt"]);
 
     useEffect(() => {
-        if (cookies.authUser) {
+        if (cookies.lrt) {
             dispatch(isLogin());
-            dispatch(setUser(cookies.authUser));
-            dispatch(fetchUserInfo(cookies.authUser.id));
+            dispatch(setUser(cookies.lrt));
+            dispatch(fetchUserInfo(cookies.lrt.id));
         }
 
         setIsReady(true);
