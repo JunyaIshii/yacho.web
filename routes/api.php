@@ -5,7 +5,6 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SiteMemberController;
 use App\Http\Controllers\SurveyingListController;
 use App\Http\Controllers\SurveyingDataController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 

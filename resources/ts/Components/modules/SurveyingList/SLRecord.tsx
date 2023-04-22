@@ -4,10 +4,6 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { surveyingList } from "../../../features/entity/SurveyingList";
 import { userInfo } from "../../../features/entity/User";
 import {
-    fetchSurveyingData,
-    selectSurveyingList,
-} from "../../../features/slice/SurveyingDataSlice";
-import {
     openRemoveModal,
     updateSurveyingList,
 } from "../../../features/slice/SurveyingListSlice";
@@ -47,8 +43,11 @@ const SLRecord = ({
     };
 
     const handleClickLink = () => {
-        history.push("/SurveyingData");
-        dispatch(selectSurveyingList({ surveyingListId, surveyingName }));
+        history.push(
+            `/SurveyingData/${surveyingListId}/${encodeURIComponent(
+                surveyingName
+            )}`
+        );
     };
 
     const onSubmit = () => {

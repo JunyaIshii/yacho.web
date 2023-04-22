@@ -1,4 +1,4 @@
-export type surveyingData = {
+type surveyingData = {
     surveyingDataId: number;
     surveyingDataName: string | null;
     surveyingId: number;
@@ -7,15 +7,11 @@ export type surveyingData = {
     gh: number | null;
 };
 
-export type surveyingDataState = {
+type surveyingDataState = {
     surveyingData: surveyingData[] | null;
-    selectedSurveyingList: selectedSurveyingList | null;
     previousIh: number | null;
     loading: boolean;
     error: string | null | undefined;
 };
 
-type selectedSurveyingList = {
-    surveyingListId: number;
-    surveyingName: string;
-};
+export type { surveyingDataState, surveyingData };

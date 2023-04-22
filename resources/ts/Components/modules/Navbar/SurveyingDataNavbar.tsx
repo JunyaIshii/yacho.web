@@ -8,11 +8,20 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { resetSurveyingData } from "../../../features/slice/SurveyingDataSlice";
 import { RootState } from "../../../features/store";
 
-export const SurveyingDataNavbar = () => {
+interface selectedSurveyingList {
+    selectedSurveyingListId: number;
+    selectedSurveyingListName: string;
+}
+
+export const SurveyingDataNavbar = ({
+    selectedSurveyingList,
+}: {
+    selectedSurveyingList: selectedSurveyingList;
+}) => {
     const dispatch = useAppDispatch();
     const history = useHistory();
 
-    const { selectedSurveyingList, surveyingData } = useAppSelector(
+    const { surveyingData } = useAppSelector(
         (state: RootState) => state.surveyingData
     );
 
@@ -26,7 +35,11 @@ export const SurveyingDataNavbar = () => {
     ) => {
         if (surveyingData && selectedSurveyingList) {
             const newArray = createOutputExcelData(surveyingData);
-            outputExcel(e, selectedSurveyingList?.surveyingName, newArray);
+            outputExcel(
+                e,
+                selectedSurveyingList.selectedSurveyingListName,
+                newArray
+            );
         }
     };
 
@@ -59,7 +72,7 @@ export const SurveyingDataNavbar = () => {
 
                     <div className="w-5/6">
                         <p className="text-1xl text-center my-auto text-gray-700">
-                            {selectedSurveyingList?.surveyingName}
+                            {selectedSurveyingList.selectedSurveyingListName}
                         </p>
                     </div>
 

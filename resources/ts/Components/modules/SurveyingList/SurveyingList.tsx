@@ -25,7 +25,7 @@ const SurveyingList = () => {
                 <div className="flex-col mt-6">
                     <div className=" -my-2 -mx-8">
                         <div className="inline-block min-w-full py-2 align-middle px-8">
-                            <div className="overflow-hidden border border-gray-200  rounded-lg">
+                            <div className="overflow-hidden border mb-10 border-gray-200  rounded-lg">
                                 <table className="min-w-full divide-y divide-gray-200 ">
                                     <thead className="bg-green-100 ">
                                         <tr>

@@ -5,7 +5,6 @@ import { resetState } from "./ResetState";
 
 const initialState: surveyingDataState = {
     surveyingData: null,
-    selectedSurveyingList: null,
     previousIh: null,
     loading: false,
     error: null,
@@ -56,10 +55,7 @@ const surveyingDataSlice = createSlice({
     name: "surveyingData",
     initialState,
     reducers: {
-        selectSurveyingList: (state, actions) => {
-            state.selectedSurveyingList = actions.payload;
-        },
-        resetSurveyingData: (state) => {
+        resetSurveyingData: () => {
             return initialState;
         },
         setPreviousIh: (state, actions) => {
@@ -109,6 +105,5 @@ const surveyingDataSlice = createSlice({
     },
 });
 
-export const { resetSurveyingData, selectSurveyingList, setPreviousIh } =
-    surveyingDataSlice.actions;
+export const { resetSurveyingData, setPreviousIh } = surveyingDataSlice.actions;
 export default surveyingDataSlice.reducer;

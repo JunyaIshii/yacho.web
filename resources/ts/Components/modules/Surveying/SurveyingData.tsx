@@ -63,7 +63,6 @@ const SurveyingData: React.FC<Props> = ({
         setBs(value);
         setFs(null);
         const newIhValue = value !== null && gh !== null ? value + gh : null;
-        // setGh(newIhValue);
         onIhValuesChange(index, newIhValue);
     };
 

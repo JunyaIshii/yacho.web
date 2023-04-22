@@ -8,19 +8,24 @@ import { surveyingData } from "../features/entity/SurveyingData";
 import { surveyingList } from "../features/entity/SurveyingList";
 import { Helmet } from "react-helmet";
 import { fetchSurveyingData } from "../features/slice/SurveyingDataSlice";
+import { useParams } from "react-router-dom";
 
 export const Surveying = ({ pageTitle }) => {
     const dispatch = useAppDispatch();
+    const { surveyingListId, surveyingName } = useParams<{
+        surveyingListId: string;
+        surveyingName: string;
+    }>();
+    const selectedSurveyingListId = parseInt(surveyingListId, 10);
+    const selectedSurveyingListName = decodeURIComponent(surveyingName);
 
-    const { surveyingData, selectedSurveyingList } = useAppSelector(
+    const { surveyingData } = useAppSelector(
         (state: RootState) => state.surveyingData
     );
     const [ihValues, setIhValues] = useState<(number | null)[]>([]);
 
     useEffect(() => {
-        if (selectedSurveyingList) {
-            dispatch(fetchSurveyingData(selectedSurveyingList.surveyingListId));
-        }
+        dispatch(fetchSurveyingData(selectedSurveyingListId));
     }, []);
 
     useEffect(() => {
@@ -60,7 +65,7 @@ export const Surveying = ({ pageTitle }) => {
         }
     };
 
-    //編集権限の可否
+    //編集権限の可否を確認
     const { surveyingList } = useAppSelector(
         (state: RootState) => state.surveyingList
     );
@@ -69,11 +74,8 @@ export const Surveying = ({ pageTitle }) => {
     const selectedSiteMember = userInfo?.find((info: userInfo) => {
         return info.siteId === selectedSite?.siteId;
     });
-
     const author = surveyingList?.find((surveying: surveyingList) => {
-        return (
-            surveying.surveyingListId === selectedSurveyingList?.surveyingListId
-        );
+        return surveying.surveyingListId === selectedSurveyingListId;
     })?.author;
 
     const authority = author !== selectedSiteMember?.siteMemberId;
@@ -84,9 +86,14 @@ export const Surveying = ({ pageTitle }) => {
                 <title>{pageTitle}</title>
             </Helmet>
 
-            <SurveyingDataNavbar />
+            <SurveyingDataNavbar
+                selectedSurveyingList={{
+                    selectedSurveyingListId,
+                    selectedSurveyingListName,
+                }}
+            />
             <section className="sm:container sm:px-4 sm:mx-auto">
-                <table className="mx-auto text-sm text-center border-collapse border text-gray-500 shadow-md sm:rounded-lg">
+                <table className="mb-10 text-sm text-center border-collapse border text-gray-500 shadow-md sm:rounded-lg">
                     <thead className="text-xs text-gray-700 uppercase bg-red-50">
                         <tr>
                             <th

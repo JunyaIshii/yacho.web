@@ -83,7 +83,7 @@ const App = () => {
             <SiteEditRoute path="/SiteEdit">
                 <SiteEdit pageTitle={"現場編集"} />
             </SiteEditRoute>
-            <GuardRoute path="/SurveyingData">
+            <GuardRoute path="/SurveyingData/:surveyingListId/:surveyingName">
                 <Surveying pageTitle={"測量データ"} />
             </GuardRoute>
             <LoginRoute path="/">

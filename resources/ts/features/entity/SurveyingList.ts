@@ -1,4 +1,4 @@
-export type surveyingListState = {
+type surveyingListState = {
     surveyingList: surveyingList[] | null;
     removeModal: removeModal;
     searchValue: string;
@@ -7,7 +7,7 @@ export type surveyingListState = {
     error: string | null | undefined;
 };
 
-export type surveyingList = {
+type surveyingList = {
     surveyingListId: number;
     surveyingName: string;
     weather: number;
@@ -20,3 +20,5 @@ type removeModal = {
     isOpen: boolean;
     removeSurveyingListId: number;
 };
+
+export type { surveyingListState, surveyingList };

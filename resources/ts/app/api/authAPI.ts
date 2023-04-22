@@ -1,10 +1,5 @@
 import axios from "axios";
 
-// export const http = axios.create({
-//     baseURL: "http://localhost",
-//     withCredentials: true,
-// });
-
 const register = async ({
     name,
     email,
