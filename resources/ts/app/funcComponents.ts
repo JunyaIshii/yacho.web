@@ -10,7 +10,8 @@ export const today = () => {
     return year + "/" + month + "/" + date;
 };
 
-interface outputExcelData {
+interface formalSurveyingData {
+    surveyingDataId: number;
     surveyingDataName: string;
     bs: number | string;
     ih: number | string;
@@ -21,7 +22,7 @@ interface outputExcelData {
 export const outputExcel = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     title: string,
-    outputExcelData: outputExcelData[]
+    outputExcelData: formalSurveyingData[]
 ) => {
     e.preventDefault();
     // Workbookの作成
@@ -39,7 +40,7 @@ export const outputExcel = async (
         { header: "GH", key: "gh" },
     ];
     // 行を定義
-    outputExcelData.map((data: outputExcelData) => {
+    outputExcelData.map((data: formalSurveyingData) => {
         worksheet.addRow({
             name: data.surveyingDataName,
             bs: data.bs,
@@ -62,12 +63,13 @@ export const outputExcel = async (
 
 //ihの値を算出し新たな配列を作成する関数
 export const createFormalSurveyingData = (inputArray: surveyingData[]) => {
-    let outputArray: outputExcelData[] = [];
+    let outputArray: formalSurveyingData[] = [];
     let lastIh = 0;
 
     for (let i = 0; i < inputArray.length; i++) {
         let currentItem = inputArray[i];
-        let newItem: outputExcelData = {
+        let newItem: formalSurveyingData = {
+            surveyingDataId: currentItem.surveyingDataId,
             surveyingDataName: "some value",
             bs: 0,
             ih: 0,
