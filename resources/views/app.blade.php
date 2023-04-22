@@ -7,7 +7,7 @@
 
 
     @viteReactRefresh
-    @vite(['resources/ts/app.css','resources/ts/app.tsx'])
+    @vite(['resources/css/app.css','resources/ts/app.tsx'])
 </head>
 
 <body>
