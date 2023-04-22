@@ -63,7 +63,7 @@ const App = () => {
             return <Redirect to="/" />;
         }
         if (authority === 0 || selectedSite.siteId === null) {
-            return <Redirect to="Menu" />;
+            return <Redirect to="/Menu" />;
         }
 
         return <Route {...props} />;
@@ -80,7 +80,7 @@ const App = () => {
             <GuardRoute path="/Menu">
                 <Menu pageTitle={"メニュー"} />
             </GuardRoute>
-            <SiteEditRoute path="/SiteEdit">
+            <SiteEditRoute path="/SiteEdit/:siteId/:siteName">
                 <SiteEdit pageTitle={"現場編集"} />
             </SiteEditRoute>
             <GuardRoute path="/SurveyingData/:surveyingListId/:surveyingName">

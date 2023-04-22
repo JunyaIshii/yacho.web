@@ -1,5 +1,4 @@
-import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { RootState } from "../../../features/store";
+import { useAppDispatch } from "../../../app/hooks";
 import {
     openAddUserModal,
     resetSiteEdit,
@@ -7,9 +6,12 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const SiteEditNavbar = () => {
+export const SiteEditNavbar = ({
+    selectedSiteName,
+}: {
+    selectedSiteName: string;
+}) => {
     const dispatch = useAppDispatch();
-    const { selectedSite } = useAppSelector((state: RootState) => state.main);
     const handleAddUserModal = () => {
         dispatch(openAddUserModal());
     };
@@ -21,7 +23,7 @@ export const SiteEditNavbar = () => {
                     <div className="w-1/12 flex items-center justify-around">
                         {/* Menu画面に遷移 */}
                         <Link
-                            to={"Menu"}
+                            to={"/Menu"}
                             onClick={() => {
                                 dispatch(resetSiteEdit());
                             }}
@@ -47,7 +49,7 @@ export const SiteEditNavbar = () => {
 
                     <div className="w-2/3">
                         <p className="text-1xl text-center my-auto text-gray-700">
-                            {selectedSite.siteName}
+                            {selectedSiteName}
                         </p>
                     </div>
 

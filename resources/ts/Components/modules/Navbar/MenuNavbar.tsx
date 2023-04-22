@@ -22,9 +22,12 @@ const MenuNavbar = () => {
         (state: RootState) => state.main
     );
 
+    const siteId = selectedSite.siteId;
+    const siteName = String(selectedSite.siteName);
+
     //現場編集画面の表示・非表示
     const authority = userInfo?.find((info: userDataType) => {
-        return info.siteId === selectedSite.siteId;
+        return info.siteId === siteId;
     })?.authority;
 
     const handleAddModal = () => {
@@ -110,7 +113,9 @@ const MenuNavbar = () => {
                         {/* 現場グループ編集、編集権限のある人のみ表示 */}
                         {(authority === 1 || authority === 2) && (
                             <Link
-                                to={"SiteEdit"}
+                                to={`SiteEdit/${siteId}/${encodeURIComponent(
+                                    siteName
+                                )}`}
                                 className="text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100"
                             >
                                 <svg

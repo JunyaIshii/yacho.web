@@ -7,19 +7,26 @@ import { RemoveCheckModal } from "../Components/modules/SurveyingList/RemoveChec
 import React, { useEffect } from "react";
 import { fetchSiteMembers } from "../features/slice/SiteEditSlice";
 import { Helmet } from "react-helmet";
+import { useParams } from "react-router-dom";
 
 export const SiteEdit = ({ pageTitle }) => {
+    const { siteId, siteName } = useParams<{
+        siteId: string;
+        siteName: string;
+    }>();
+    const selectedSiteId = parseInt(siteId, 10);
+    const selectedSiteName = decodeURIComponent(siteName);
+
     const { removeModal, addUserModal } = useAppSelector(
         (state: RootState) => state.siteEdit
     );
-    const { selectedSite } = useAppSelector((state: RootState) => state.main);
 
     const dispatch = useAppDispatch();
     useEffect(() => {
-        if (selectedSite.siteId) {
-            dispatch(fetchSiteMembers(selectedSite.siteId));
+        if (selectedSiteId) {
+            dispatch(fetchSiteMembers(selectedSiteId));
         }
-    }, [selectedSite.siteId]);
+    }, []);
 
     return (
         <>
@@ -29,7 +36,7 @@ export const SiteEdit = ({ pageTitle }) => {
 
             {addUserModal && <AddModal />}
             {removeModal.isOpen && <RemoveCheckModal />}
-            <SiteEditNavbar />
+            <SiteEditNavbar selectedSiteName={selectedSiteName} />
             <SiteUserList />
         </>
     );
