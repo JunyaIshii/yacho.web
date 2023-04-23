@@ -104,8 +104,8 @@ const SurveyingData: React.FC<Props> = ({
                     onBlur={handleBlur}
                     onChange={handleChangeSurveyingDataName}
                     disabled={authority}
-                    className="w-full h-full text-center  bg-white"
-                    style={{ color: authority ? "black" : "black" }}
+                    className="w-full h-full text-center bg-white border-none outline-none"
+                    style={{ color: authority ? "black" : "inherit" }}
                 />
             </th>
             <td
@@ -119,11 +119,11 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeBs}
                     onBlur={handleBlur}
                     disabled={fs !== null || authority}
-                    className={`w-full h-full text-center ${
+                    className={`w-full h-full text-center border-none outline-none ${
                         fs !== null ? "bg-gray-100" : "bg-white"
                     }`}
                     style={{
-                        color: fs !== null || authority ? "black" : "black",
+                        color: fs !== null || authority ? "black" : "inherit",
                     }}
                 />
             </td>
@@ -141,11 +141,11 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeFs}
                     onBlur={handleBlur}
                     disabled={bs !== null || authority}
-                    className={`w-full h-full text-center ${
+                    className={`w-full h-full text-center border-none outline-none ${
                         bs !== null ? "bg-gray-100" : "bg-white"
                     }`}
                     style={{
-                        color: bs !== null || authority ? "black" : "black",
+                        color: bs !== null || authority ? "black" : "inherit",
                     }}
                 />
             </td>
@@ -156,9 +156,9 @@ const SurveyingData: React.FC<Props> = ({
                     onBlur={handleBlur}
                     onChange={handleChangeGh}
                     disabled={fs !== null || authority}
-                    className="w-full h-full text-center bg-white"
+                    className="w-full h-full text-center bg-white border-none outline-none"
                     style={{
-                        color: fs !== null || authority ? "black" : "black",
+                        color: fs !== null || authority ? "black" : "inherit",
                     }}
                 />
             </td>
