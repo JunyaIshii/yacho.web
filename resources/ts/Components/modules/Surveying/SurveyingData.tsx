@@ -96,7 +96,7 @@ const SurveyingData: React.FC<Props> = ({
         <tr className="bg-white border-b">
             <th
                 scope="row"
-                className="px-2 py-3 w-1/3 border-r font-medium text-gray-900 whitespace-nowrap"
+                className="px-2 py-3 w-1/3 border-r text-black font-medium whitespace-nowrap"
             >
                 <input
                     type="text"
@@ -104,12 +104,12 @@ const SurveyingData: React.FC<Props> = ({
                     onBlur={handleBlur}
                     onChange={handleChangeSurveyingDataName}
                     disabled={authority}
-                    className="w-full h-full text-center bg-white"
-                    style={{ color: "inherit" }}
+                    className="w-full h-full text-center  bg-white"
+                    // style={{ color: authority ? "black" : "black" }}
                 />
             </th>
             <td
-                className={`px-2 py-3 w-1/6 border-r ${
+                className={`px-2 py-3 w-1/6 border-r text-black ${
                     fs !== null ? "bg-gray-100" : ""
                 }`}
             >
@@ -122,14 +122,16 @@ const SurveyingData: React.FC<Props> = ({
                     className={`w-full h-full text-center ${
                         fs !== null ? "bg-gray-100" : "bg-white"
                     }`}
-                    style={{ color: "inherit" }}
+                    // style={{
+                    //     color: fs !== null || authority ? "black" : "black",
+                    // }}
                 />
             </td>
-            <td className="px-2 py-3 w-1/6 border-r">
+            <td className="px-2 py-3 w-1/6 text-black border-r">
                 {ihValue !== null ? ihValue : ""}
             </td>
             <td
-                className={`px-2 py-3 w-1/6 border-r ${
+                className={`px-2 py-3 w-1/6 border-r text-black ${
                     bs !== null ? "bg-gray-100" : ""
                 }`}
             >
@@ -142,10 +144,12 @@ const SurveyingData: React.FC<Props> = ({
                     className={`w-full h-full text-center ${
                         bs !== null ? "bg-gray-100" : "bg-white"
                     }`}
-                    style={{ color: "inherit" }}
+                    // style={{
+                    //     color: bs !== null || authority ? "black" : "black",
+                    // }}
                 />
             </td>
-            <td className="px-2 py-3 w-1/6">
+            <td className="px-2 py-3 w-1/6 text-black">
                 <input
                     type="number"
                     value={gh === null ? "" : gh}
@@ -153,7 +157,9 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeGh}
                     disabled={fs !== null || authority}
                     className="w-full h-full text-center bg-white"
-                    style={{ color: "inherit" }}
+                    // style={{
+                    //     color: fs !== null || authority ? "black" : "black",
+                    // }}
                 />
             </td>
         </tr>
