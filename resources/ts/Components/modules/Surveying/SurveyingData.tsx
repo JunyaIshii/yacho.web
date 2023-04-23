@@ -105,6 +105,7 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeSurveyingDataName}
                     disabled={authority}
                     className="w-full h-full text-center bg-white"
+                    style={{ color: "inherit" }}
                 />
             </th>
             <td
@@ -121,6 +122,7 @@ const SurveyingData: React.FC<Props> = ({
                     className={`w-full h-full text-center ${
                         fs !== null ? "bg-gray-100" : "bg-white"
                     }`}
+                    style={{ color: "inherit" }}
                 />
             </td>
             <td className="px-2 py-3 w-1/6 border-r">
@@ -140,6 +142,7 @@ const SurveyingData: React.FC<Props> = ({
                     className={`w-full h-full text-center ${
                         bs !== null ? "bg-gray-100" : "bg-white"
                     }`}
+                    style={{ color: "inherit" }}
                 />
             </td>
             <td className="px-2 py-3 w-1/6">
@@ -150,6 +153,7 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeGh}
                     disabled={fs !== null || authority}
                     className="w-full h-full text-center bg-white"
+                    style={{ color: "inherit" }}
                 />
             </td>
         </tr>
