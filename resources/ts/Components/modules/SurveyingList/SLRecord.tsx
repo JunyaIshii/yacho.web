@@ -4,6 +4,7 @@ import { convertDateFormat } from "../../../app/funcComponents";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { surveyingList } from "../../../features/entity/SurveyingList";
 import { userInfo } from "../../../features/entity/User";
+import { setSelectedSurveyingListId } from "../../../features/slice/SurveyingDataSlice";
 import {
     openRemoveModal,
     updateSurveyingList,
@@ -61,11 +62,8 @@ const SLRecord = ({
     };
 
     const handleClickLink = () => {
-        history.push(
-            `/SurveyingData/${surveyingListId}/${encodeURIComponent(
-                surveyingName
-            )}`
-        );
+        history.push(`/SurveyingData/${surveyingListId}`);
+        dispatch(setSelectedSurveyingListId(surveyingListId));
     };
 
     const onSubmit = () => {

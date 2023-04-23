@@ -5,18 +5,14 @@ import {
     outputExcel,
 } from "../../../app/funcComponents";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { surveyingList } from "../../../features/entity/SurveyingList";
 import { resetSurveyingData } from "../../../features/slice/SurveyingDataSlice";
 import { RootState } from "../../../features/store";
 
-interface selectedSurveyingList {
-    selectedSurveyingListId: number;
-    selectedSurveyingListName: string;
-}
-
 export const SurveyingDataNavbar = ({
-    selectedSurveyingList,
+    selectedSurveyingListId,
 }: {
-    selectedSurveyingList: selectedSurveyingList;
+    selectedSurveyingListId: number;
 }) => {
     const dispatch = useAppDispatch();
     const history = useHistory();
@@ -24,6 +20,15 @@ export const SurveyingDataNavbar = ({
     const { surveyingData } = useAppSelector(
         (state: RootState) => state.surveyingData
     );
+    const { surveyingList } = useAppSelector(
+        (state: RootState) => state.surveyingList
+    );
+
+    const selectedSurveyingListName = surveyingList?.find(
+        (data: surveyingList) => {
+            return data.surveyingListId === selectedSurveyingListId;
+        }
+    )?.surveyingName;
 
     const handleGoBack = () => {
         history.goBack();
@@ -33,13 +38,9 @@ export const SurveyingDataNavbar = ({
     const handleOutputExcel = (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
-        if (surveyingData && selectedSurveyingList) {
+        if (surveyingData && selectedSurveyingListName) {
             const newArray = createFormalSurveyingData(surveyingData);
-            outputExcel(
-                e,
-                selectedSurveyingList.selectedSurveyingListName,
-                newArray
-            );
+            outputExcel(e, selectedSurveyingListName, newArray);
         }
     };
 
@@ -72,7 +73,7 @@ export const SurveyingDataNavbar = ({
 
                     <div className="w-5/6">
                         <p className="text-1xl text-center my-auto text-gray-700">
-                            {selectedSurveyingList.selectedSurveyingListName}
+                            {selectedSurveyingListName}
                         </p>
                     </div>
 

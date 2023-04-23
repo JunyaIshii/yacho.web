@@ -8,6 +8,7 @@ type surveyingData = {
 };
 
 type surveyingDataState = {
+    selectedSurveyingListId: number | null;
     surveyingData: surveyingData[] | null;
     previousIh: number | null;
     loading: boolean;

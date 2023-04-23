@@ -4,6 +4,7 @@ import { surveyingDataState } from "../entity/SurveyingData";
 import { resetState } from "./ResetState";
 
 const initialState: surveyingDataState = {
+    selectedSurveyingListId: null,
     surveyingData: null,
     previousIh: null,
     loading: false,
@@ -55,6 +56,9 @@ const surveyingDataSlice = createSlice({
     name: "surveyingData",
     initialState,
     reducers: {
+        setSelectedSurveyingListId: (state, actions) => {
+            state.selectedSurveyingListId = actions.payload;
+        },
         resetSurveyingData: () => {
             return initialState;
         },
@@ -100,5 +104,6 @@ const surveyingDataSlice = createSlice({
     },
 });
 
-export const { resetSurveyingData } = surveyingDataSlice.actions;
+export const { setSelectedSurveyingListId, resetSurveyingData } =
+    surveyingDataSlice.actions;
 export default surveyingDataSlice.reducer;

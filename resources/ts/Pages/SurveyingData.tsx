@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 import { fetchSurveyingData } from "../features/slice/SurveyingDataSlice";
 import { useParams } from "react-router-dom";
 import { Loading } from "../Components/Loading";
+import { fetchSurveyingList } from "../features/slice/SurveyingListSlice";
 
 export const Surveying = ({ pageTitle }) => {
     const dispatch = useAppDispatch();
@@ -17,16 +18,18 @@ export const Surveying = ({ pageTitle }) => {
         (state: RootState) => state.surveyingData
     );
 
-    const { surveyingListId, surveyingName } = useParams<{
+    const { surveyingListId } = useParams<{
         surveyingListId: string;
-        surveyingName: string;
     }>();
     const selectedSurveyingListId = parseInt(surveyingListId, 10);
-    const selectedSurveyingListName = decodeURIComponent(surveyingName);
 
     const { surveyingData } = useAppSelector(
         (state: RootState) => state.surveyingData
     );
+    const { surveyingList } = useAppSelector(
+        (state: RootState) => state.surveyingList
+    );
+
     const [ihValues, setIhValues] = useState<(number | null)[]>([]);
 
     useEffect(() => {
@@ -72,9 +75,6 @@ export const Surveying = ({ pageTitle }) => {
     };
 
     //編集権限の可否を確認
-    const { surveyingList } = useAppSelector(
-        (state: RootState) => state.surveyingList
-    );
     const { selectedSite } = useAppSelector((state: RootState) => state.main);
     const { userInfo } = useAppSelector((state: RootState) => state.main);
     const selectedSiteMember = userInfo?.find((info: userInfo) => {
@@ -84,7 +84,9 @@ export const Surveying = ({ pageTitle }) => {
         return surveying.surveyingListId === selectedSurveyingListId;
     })?.author;
 
+    console.log(author);
     const authority = author !== selectedSiteMember?.siteMemberId;
+    console.log(authority);
 
     return (
         <>
@@ -93,10 +95,7 @@ export const Surveying = ({ pageTitle }) => {
             </Helmet>
 
             <SurveyingDataNavbar
-                selectedSurveyingList={{
-                    selectedSurveyingListId,
-                    selectedSurveyingListName,
-                }}
+                selectedSurveyingListId={selectedSurveyingListId}
             />
             <section className="sm:container sm:px-4 sm:mx-auto">
                 {loading ? (

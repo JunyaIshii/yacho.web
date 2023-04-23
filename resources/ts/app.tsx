@@ -70,6 +70,17 @@ const App = () => {
         return <Route {...props} />;
     };
 
+    const SurveyingDataRoute = (props) => {
+        if (!authToggle) {
+            return <Redirect to="/" />;
+        }
+        if (selectedSite.siteId === null) {
+            return <Redirect to="/Menu" />;
+        }
+
+        return <Route {...props} />;
+    };
+
     return (
         <Switch>
             <Route path="/reset-password">
@@ -84,9 +95,9 @@ const App = () => {
             <SiteEditRoute path="/SiteEdit/:siteId/:siteName">
                 <SiteEdit pageTitle={"現場編集"} />
             </SiteEditRoute>
-            <GuardRoute path="/SurveyingData/:surveyingListId/:surveyingName">
+            <SurveyingDataRoute path="/SurveyingData/:surveyingListId">
                 <Surveying pageTitle={"測量データ"} />
-            </GuardRoute>
+            </SurveyingDataRoute>
             <LoginRoute path="/">
                 <Welcome pageTitle={"野帳.web"} />
             </LoginRoute>
