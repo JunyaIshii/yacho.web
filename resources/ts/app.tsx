@@ -26,6 +26,7 @@ const App = () => {
 
     const [cookies] = useCookies(["lrt"]);
 
+    //クッキーに保存した値が存在する場合はそれを取得する
     useEffect(() => {
         if (cookies.lrt) {
             dispatch(isLogin());

@@ -44,8 +44,6 @@ export const PasswordResetForm = ({ pageTitle }) => {
             // エラーメッセージを表示
         }
     };
-    console.log(token);
-    console.log(email);
 
     return (
         <>

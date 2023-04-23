@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { convertDateFormat } from "../../../app/funcComponents";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { surveyingList } from "../../../features/entity/SurveyingList";
 import { userInfo } from "../../../features/entity/User";
@@ -25,10 +26,27 @@ const SLRecord = ({
     const [editSurveyingList, setEditSurveyingList] = useState<boolean>(false);
     const [editSurveyingName, setEditSurveyingName] = useState(surveyingName);
     const [editWeather, setEditWeather] = useState(weather);
+    const [isSmallScreen, setIsSmallScreen] = useState(
+        window.innerWidth <= 640
+    );
 
     const selectedSiteMember = userInfo?.find((info: userInfo) => {
         return info.siteId === selectedSite?.siteId;
     });
+
+    //画面サイズの判定
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth <= 640);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const convertDate = convertDateFormat(createdAt);
 
     const handleEditSurveyingNameChange = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -85,17 +103,17 @@ const SLRecord = ({
                 <td className="py-2 md:px-12 md:py-4 text-sm font-medium text-center whitespace-nowrap">
                     <input
                         type="text"
-                        className="text-center bg-green-50"
+                        className="text-center bg-green-50 w-full"
                         value={editSurveyingName}
                         onChange={handleEditSurveyingNameChange}
                     />
                 </td>
                 <td className="py-2 md:px-4 md:py-4 text-sm text-center whitespace-nowrap">
-                    {createdAt}
+                    {isSmallScreen ? convertDate : createdAt}
                 </td>
                 <td className="py-2 md:px-4 md:py-4 text-sm text-center whitespace-nowrap">
                     <select
-                        className="md:px-3 md:py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm w-16 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                        className="md:px-3 md:py-2 text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm w-16 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                         onChange={handleEditWeatherChange}
                         value={editWeather}
                     >
@@ -161,7 +179,7 @@ const SLRecord = ({
                     {surveyingName}
                 </td>
                 <td className="py-2 md:px-4 md:py-4 text-sm text-center whitespace-nowrap">
-                    {createdAt}
+                    {isSmallScreen ? convertDate : createdAt}
                 </td>
                 <td className="py-2 md:px-4 md:py-4 text-sm text-center whitespace-nowrap">
                     {weather !== null && getWeather(weather)}

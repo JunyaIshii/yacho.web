@@ -43,6 +43,7 @@ const SurveyingData: React.FC<Props> = ({
         }
     }, [ihValue]);
 
+    //inputタグからフォーカスが外れた際にdbの更新を行う
     const handleBlur = () => {
         const updatedData = {
             surveyingDataId: data.surveyingDataId,

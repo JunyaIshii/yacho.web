@@ -74,7 +74,6 @@ const surveyingDataSlice = createSlice({
             .addCase(fetchSurveyingData.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message;
-                console.log(state.error);
             })
             //fetchSurveyingDataが実行中の場合
             .addCase(fetchSurveyingData.pending, (state) => {

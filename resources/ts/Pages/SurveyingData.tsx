@@ -33,6 +33,7 @@ export const Surveying = ({ pageTitle }) => {
         dispatch(fetchSurveyingData(selectedSurveyingListId));
     }, []);
 
+    //surveyingDataの更新があった場合にihの値を再計算し、反映させる
     useEffect(() => {
         const newIhValues: (number | null)[] = [];
         let previousIh: number | null = null;

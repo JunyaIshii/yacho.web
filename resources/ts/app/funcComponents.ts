@@ -1,13 +1,12 @@
 import ExcelJS from "exceljs";
 import { surveyingData } from "../features/entity/SurveyingData";
 
-export const today = () => {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
-    const date = currentDate.getDate();
+export const convertDateFormat = (dateString: string) => {
+    const date = new Date(dateString);
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
-    return year + "/" + month + "/" + date;
+    return `${month}/${day}`;
 };
 
 interface formalSurveyingData {

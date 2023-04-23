@@ -20,7 +20,6 @@ type mainState = {
     selectedSite: selectedSite;
 };
 
-//ログイン時に取得するJSONデータの型
 type userInfo = {
     siteId: number | null;
     siteName: string | null;

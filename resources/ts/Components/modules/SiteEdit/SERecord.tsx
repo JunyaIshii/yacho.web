@@ -18,6 +18,7 @@ export const SERecord = ({
     const [author, setAuthor] = useState<boolean>(false);
     const [undeletable, setUndeletable] = useState<boolean>(false);
 
+    //画面をクリックするとポップアップが消える処理
     const insideRefAuthority = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const el = insideRefAuthority.current;
@@ -32,6 +33,7 @@ export const SERecord = ({
         document.addEventListener("click", hundleClickOutside);
     }, [dispatch, insideRefAuthority]);
 
+    //画面をクリックするとポップアップが消える処理
     const insideRefRemove = useRef<HTMLButtonElement>(null);
     useEffect(() => {
         const el = insideRefRemove.current;
