@@ -6,8 +6,10 @@ module.exports = {
       "./resources/**/*.js", 
       "./resources/**/*.tsx", 
   ],
-  theme: {
-      extend: {textColor: ['disabled'],},
+  variants: {
+    extend: {
+      textColor: ['disabled'],
+    },
   },
   plugins: [],
 }
