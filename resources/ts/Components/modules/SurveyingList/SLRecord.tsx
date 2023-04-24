@@ -111,7 +111,7 @@ const SLRecord = ({
                 </td>
                 <td className="py-2 md:px-4 md:py-4 text-sm text-center whitespace-nowrap">
                     <select
-                        className="md:px-3 md:py-2 text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm w-16 focus:outline-none focus:ring-primary-500 focus:border-primary-500"
+                        className="md:px-3 md:py-2 w-full lg:w-2/3 text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500"
                         onChange={handleEditWeatherChange}
                         value={editWeather}
                     >

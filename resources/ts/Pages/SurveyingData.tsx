@@ -10,7 +10,6 @@ import { Helmet } from "react-helmet";
 import { fetchSurveyingData } from "../features/slice/SurveyingDataSlice";
 import { useParams } from "react-router-dom";
 import { Loading } from "../Components/Loading";
-import { fetchSurveyingList } from "../features/slice/SurveyingListSlice";
 
 export const Surveying = ({ pageTitle }) => {
     const dispatch = useAppDispatch();
@@ -84,9 +83,7 @@ export const Surveying = ({ pageTitle }) => {
         return surveying.surveyingListId === selectedSurveyingListId;
     })?.author;
 
-    console.log(author);
     const authority = author !== selectedSiteMember?.siteMemberId;
-    console.log(authority);
 
     return (
         <>

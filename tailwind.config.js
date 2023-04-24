@@ -11,5 +11,12 @@ module.exports = {
       textColor: ['disabled'],
     },
   },
+  theme: {
+    extend: {
+      textColor: {
+        'black-important': 'black !important',
+      },
+    },
+  },
   plugins: [],
 }
