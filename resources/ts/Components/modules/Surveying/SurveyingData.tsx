@@ -105,8 +105,7 @@ const SurveyingData: React.FC<Props> = ({
                     onBlur={handleBlur}
                     onChange={handleChangeSurveyingDataName}
                     disabled={authority}
-                    className="w-full h-full text-center bg-white border-none outline-none"
-                    style={{ color: authority ? "black" : "inherit" }}
+                    className="w-full h-full text-center bg-white border-none outline-none disabled:text-black"
                 />
             </th>
             <td
@@ -120,12 +119,9 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeBs}
                     onBlur={handleBlur}
                     disabled={fs !== null || authority}
-                    className={`w-full h-full text-center border-none outline-none ${
+                    className={`w-full h-full text-center border-none outline-none disabled:text-black ${
                         fs !== null ? "bg-gray-100" : "bg-white"
                     }`}
-                    style={{
-                        color: fs !== null || authority ? "black" : "inherit",
-                    }}
                 />
             </td>
             <td className="px-2 py-3 w-1/6 text-black border-r">
@@ -142,12 +138,9 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeFs}
                     onBlur={handleBlur}
                     disabled={bs !== null || authority}
-                    className={`w-full h-full text-center border-none outline-none ${
+                    className={`w-full h-full text-center border-none outline-none disabled:text-black ${
                         bs !== null ? "bg-gray-100" : "bg-white"
                     }`}
-                    style={{
-                        color: bs !== null || authority ? "black" : "inherit",
-                    }}
                 />
             </td>
             <td className="px-2 py-3 w-1/6 text-black">
@@ -157,10 +150,7 @@ const SurveyingData: React.FC<Props> = ({
                     onBlur={handleBlur}
                     onChange={handleChangeGh}
                     disabled={fs !== null || authority}
-                    className="w-full h-full text-center bg-white border-none outline-none"
-                    style={{
-                        color: fs !== null || authority ? "black" : "inherit",
-                    }}
+                    className="w-full h-full text-center bg-white border-none outline-none disabled:text-black"
                 />
             </td>
         </tr>

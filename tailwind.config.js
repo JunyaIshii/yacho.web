@@ -7,7 +7,7 @@ module.exports = {
       "./resources/**/*.tsx", 
   ],
   theme: {
-      extend: {},
+      extend: {textColor: ['disabled'],},
   },
   plugins: [],
 }
