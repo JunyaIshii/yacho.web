@@ -9,6 +9,7 @@ module.exports = {
   variants: {
     extend: {
       textColor: ['disabled'],
+      opacity: ['disabled'],
     },
   },
   theme: {

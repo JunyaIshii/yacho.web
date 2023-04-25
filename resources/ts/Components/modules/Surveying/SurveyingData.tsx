@@ -105,7 +105,7 @@ const SurveyingData: React.FC<Props> = ({
                     onBlur={handleBlur}
                     onChange={handleChangeSurveyingDataName}
                     disabled={authority}
-                    className="w-full h-full text-center bg-white border-none outline-none disabled:text-black-important"
+                    className="w-full h-full text-center bg-white border-none outline-none disabled:text-black-important disabled:opacity-100"
                 />
             </th>
             <td
@@ -119,7 +119,7 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeBs}
                     onBlur={handleBlur}
                     disabled={fs !== null || authority}
-                    className={`w-full h-full text-center border-none outline-none disabled:text-black-important ${
+                    className={`w-full h-full text-center border-none outline-none disabled:text-black-important disabled:opacity-100 ${
                         fs !== null ? "bg-gray-100" : "bg-white"
                     }`}
                 />
@@ -138,7 +138,7 @@ const SurveyingData: React.FC<Props> = ({
                     onChange={handleChangeFs}
                     onBlur={handleBlur}
                     disabled={bs !== null || authority}
-                    className={`w-full h-full text-center border-none outline-none disabled:text-black-important ${
+                    className={`w-full h-full text-center border-none outline-none disabled:text-black-important disabled:opacity-100 ${
                         bs !== null ? "bg-gray-100" : "bg-white"
                     }`}
                 />
@@ -150,7 +150,7 @@ const SurveyingData: React.FC<Props> = ({
                     onBlur={handleBlur}
                     onChange={handleChangeGh}
                     disabled={fs !== null || authority}
-                    className="w-full h-full text-center bg-white border-none outline-none disabled:text-black-important"
+                    className="w-full h-full text-center bg-white border-none outline-none disabled:text-black-important disabled:opacity-100"
                 />
             </td>
         </tr>
