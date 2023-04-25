@@ -121,6 +121,19 @@ const mainSlice = createSlice({
         builder
             //createSiteが成功した場合
             .addCase(createSite.fulfilled, (state, action) => {
+                if (action.payload.length > 0) {
+                    let maxSiteIdUserInfo = action.payload.reduce(
+                        (prev, current) => {
+                            return prev.siteId > current.siteId
+                                ? prev
+                                : current;
+                        }
+                    );
+
+                    let siteId = maxSiteIdUserInfo.siteId;
+                    let siteName = maxSiteIdUserInfo.siteName;
+                    state.selectedSite = { siteId, siteName };
+                }
                 state.userInfo = action.payload;
                 state.addSiteModal = false;
                 state.loading = false;
