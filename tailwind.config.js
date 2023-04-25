@@ -17,6 +17,9 @@ module.exports = {
       textColor: {
         'black-important': 'black !important',
       },
+      opacity: {
+        '100-important': '1 !important',
+      },
     },
   },
   plugins: [],
