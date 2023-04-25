@@ -40,11 +40,6 @@ class SiteController extends Controller
         // サイトを取得する
         $site = Site::where('site_name', $site_name)->first();
 
-        if ($site) {
-            //サイトが存在する場合はエラーメッセージを返す
-            return response()->json(['message' => '既にこの現場名は存在します'], 422);
-        }
-
         $site = Site::create([
             'site_name' => $site_name,
         ]);
