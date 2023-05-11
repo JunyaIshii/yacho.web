@@ -6,6 +6,7 @@ import { useRegister } from "../features/queies/AuthQuery";
 import { setError } from "../features/slice/MainSlice";
 import { RootState } from "../features/store";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 export const Register = ({ pageTitle }) => {
     const {
@@ -18,8 +19,13 @@ export const Register = ({ pageTitle }) => {
     const { error } = useAppSelector((state: RootState) => state.main);
 
     const registerMutation = useRegister();
-    const onSubmit = (data) => {
-        registerMutation.mutate(data);
+
+    const handleRegister = (data) => {
+        axios
+            .get("/sanctum/csrf-cookie", { withCredentials: true })
+            .then(() => {
+                registerMutation.mutate(data);
+            });
     };
 
     const handleEmailInputChange = () => {
@@ -39,7 +45,7 @@ export const Register = ({ pageTitle }) => {
                     </h2>
                     <div className="bg-white rounded border">
                         <form
-                            onSubmit={handleSubmit(onSubmit)}
+                            onSubmit={handleSubmit(handleRegister)}
                             className="mx-auto max-w-lg rounded border"
                         >
                             <div className="bg-white flex flex-col gap-4 p-4 md:p-8">

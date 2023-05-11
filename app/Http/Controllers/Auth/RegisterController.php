@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Http\JsonResponse;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 final class RegisterController extends Controller
 {
@@ -21,6 +22,8 @@ final class RegisterController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->save();
+
+        Auth::login($user);
 
         $response = [
             'user' => $user,
