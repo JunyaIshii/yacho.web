@@ -21,12 +21,12 @@
 -   フロントエンド：React/TypeScript/Redux
 -   バックエンド：Laravel
 -   データベース：PostgreSQL
--   インフラ：Heroku
+-   インフラ：AWS-EC2/RDS/SES
 -   利用ツール：Docker
 
 ## サイトページ
 
-https://www.yachoweb.com/
+-   停止中
 
 ## ソースコード
 

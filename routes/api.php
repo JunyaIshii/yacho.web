@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\MeController;
+use App\Http\Controllers\Auth\MeController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SiteMemberController;
 use App\Http\Controllers\SurveyingListController;
@@ -29,9 +29,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/member/{userId}', [SiteMemberController::class, 'userInfo']);
 
     Route::get('/siteMembers/{siteId}', [SiteMemberController::class, 'siteMembers']);
-    Route::post('/siteMember/store', [SiteMemberController::class, 'store']);
-    Route::post('/siteMember/destroy', [SiteMemberController::class, 'destroy']);
-    Route::post('/siteMember/update', [SiteMemberController::class, 'update']);
+    Route::post('/siteMembers/store', [SiteMemberController::class, 'store']);
+    Route::post('/siteMembers/destroy', [SiteMemberController::class, 'destroy']);
+    Route::post('/siteMembers/update', [SiteMemberController::class, 'update']);
 
     Route::get('/surveyingData/{surveyingListId}', [SurveyingDataController::class, 'surveyingData']);
     Route::post('/surveyingData/update', [SurveyingDataController::class, 'update']);
@@ -40,7 +40,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/site/store', [SiteController::class, 'store']);
 
     Route::post('/surveyingList/store', [SurveyingListController::class, 'store']);
-    Route::get('/surveyingList/index/{siteId}', [SurveyingListController::class, 'index']);
+    Route::get('/surveyingList/{siteId}', [SurveyingListController::class, 'index']);
     Route::post('/surveyingList/update', [SurveyingListController::class, 'update']);
     Route::post('/surveyingList/destroy', [SurveyingListController::class, 'destroy']);
 });
