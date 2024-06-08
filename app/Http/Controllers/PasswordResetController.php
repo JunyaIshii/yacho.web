@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PasswordResetMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Str;
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Support\Facades\Mail;
 
 class PasswordResetController extends Controller
 {
@@ -25,6 +27,7 @@ class PasswordResetController extends Controller
             $url = "{$initUrl}/reset-password?token={$token}&email={$user->email}";
 
             $user->notify(new ResetPasswordNotification($url));
+            Mail::to($request->input('email'))->send(new PasswordResetMail($url));
 
             return response()->json([
                 'message' => 'パスワードリセットリンクが送信されました。メールを確認してください。'

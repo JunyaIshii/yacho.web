@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "lib": ["es2023", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "target": "es2022",
+
+        "baseUrl": "./",
+        "paths": {
+            "@frontend/*": ["resources/ts/*"]
+        },
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node"
+    }
+}
