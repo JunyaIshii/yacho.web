@@ -1,9 +1,3 @@
-import {
-    emailErrorMessage,
-    siteNameErrorMessage,
-    VALIDATE_EMAIL_PATTERN,
-    VALIDATE_SITE_NAME_PATTERN,
-} from "@frontend/config/validate-pattern";
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -14,6 +8,12 @@ import {
 import { closeAddSiteModal, createSite } from "../store/MainSlice";
 import { RootState } from "../store/store";
 import { useAppDispatch, useAppSelector } from "../store/store-hooks";
+import {
+    VALIDATE_EMAIL_PATTERN,
+    emailErrorMessage,
+    VALIDATE_SITE_NAME_PATTERN,
+    siteNameErrorMessage,
+} from "../config/validate-pattern";
 
 export const AddModal = () => {
     const { addUserModal, error } = useAppSelector(

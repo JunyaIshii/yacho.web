@@ -1,19 +1,19 @@
-import {
-    emailErrorMessage,
-    passwordErrorMessage,
-    VALIDATE_EMAIL_PATTERN,
-    VALIDATE_PASSWORD_PATTERN,
-} from "@frontend/config/validate-pattern";
-import { SendEmailModal } from "@frontend/features/auth/components/SendEmailModal";
-import { setError } from "@frontend/store/MainSlice";
-import { RootState } from "@frontend/store/store";
-import { useAppDispatch, useAppSelector } from "@frontend/store/store-hooks";
 import axios from "axios";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useLogin } from "./auth/api/AuthQuery";
+import {
+    VALIDATE_EMAIL_PATTERN,
+    emailErrorMessage,
+    VALIDATE_PASSWORD_PATTERN,
+    passwordErrorMessage,
+} from "../config/validate-pattern";
+import { setError } from "../store/MainSlice";
+import { RootState } from "../store/store";
+import { useAppDispatch, useAppSelector } from "../store/store-hooks";
+import { SendEmailModal } from "./auth/components/SendEmailModal";
 
 export const Welcome = () => {
     const login = useLogin();

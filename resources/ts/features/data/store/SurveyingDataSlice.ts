@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { surveyingDataState } from "../types/SurveyingData";
-import { resetState } from "@frontend/store/ResetState";
+import { resetState } from "../../../store/ResetState";
 
 const initialState: surveyingDataState = {
     selectedSurveyingListId: null,

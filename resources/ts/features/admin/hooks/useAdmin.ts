@@ -1,7 +1,7 @@
-import { fetchSiteMembers } from "@frontend/features/admin/store/AdminStore";
-import { useAppDispatch } from "@frontend/store/store-hooks";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useAppDispatch } from "../../../store/store-hooks";
+import { fetchSiteMembers } from "../store/AdminStore";
 
 function useAdmin() {
     const { siteId } = useParams<{

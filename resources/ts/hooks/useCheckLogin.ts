@@ -1,8 +1,8 @@
-import { SESSION_KEY } from "@frontend/config/initialize";
-import { fetchUserInfo, isLogin, setUser } from "@frontend/store/MainSlice";
-import { useAppDispatch } from "@frontend/store/store-hooks";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
+import { SESSION_KEY } from "../config/initialize";
+import { isLogin, setUser, fetchUserInfo } from "../store/MainSlice";
+import { useAppDispatch } from "../store/store-hooks";
 
 export const useCheckLogin = () => {
     const dispatch = useAppDispatch();

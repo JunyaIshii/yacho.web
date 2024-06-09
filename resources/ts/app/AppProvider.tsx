@@ -1,9 +1,9 @@
-import { store } from "@frontend/store/store";
 import React from "react";
 import { CookiesProvider } from "react-cookie";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { store } from "../store/store";
 
 type AppProvider = {
     children: React.ReactNode;

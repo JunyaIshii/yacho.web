@@ -1,17 +1,17 @@
-import { AppProvider } from "@frontend/app/AppProvider";
-import { Loading } from "@frontend/components/Loading";
-import { Admin } from "@frontend/features/admin/admin";
-import { PasswordResetForm } from "@frontend/features/auth/PasswordResetForm";
-import { Register } from "@frontend/features/auth/Register";
-import { Surveying } from "@frontend/features/data/SurveyingData";
-import { Menu } from "@frontend/features/menu/Menu";
-import { Welcome } from "@frontend/features/Welcome";
-import { useCheckLogin } from "@frontend/hooks/useCheckLogin";
 import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { Route, Routes } from "react-router-dom";
 import "../../css/app.css";
 import "../../js/bootstrap";
+import { Loading } from "../components/Loading";
+import { Admin } from "../features/admin/admin";
+import { PasswordResetForm } from "../features/auth/PasswordResetForm";
+import { Register } from "../features/auth/Register";
+import { Surveying } from "../features/data/SurveyingData";
+import { Menu } from "../features/menu/Menu";
+import { Welcome } from "../features/Welcome";
+import { useCheckLogin } from "../hooks/useCheckLogin";
+import { AppProvider } from "./AppProvider";
 import { useRoutes } from "./routes/useRoutes";
 
 const App = () => {

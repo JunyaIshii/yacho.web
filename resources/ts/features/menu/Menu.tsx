@@ -1,11 +1,11 @@
-import { AddModal } from "@frontend/components/AddModal";
-import { RemoveCheckModal } from "@frontend/components/RemoveCheckModal";
-import MenuNavbar from "@frontend/features/menu/components/MenuNavbar";
-import SurveyingList from "@frontend/features/menu/components/SurveyingList";
-import { RootState } from "@frontend/store/store";
-import { useAppSelector } from "@frontend/store/store-hooks";
 import React from "react";
 import { Helmet } from "react-helmet";
+import { AddModal } from "../../components/AddModal";
+import { RemoveCheckModal } from "../../components/RemoveCheckModal";
+import { RootState } from "../../store/store";
+import { useAppSelector } from "../../store/store-hooks";
+import MenuNavbar from "./components/MenuNavbar";
+import SurveyingList from "./components/SurveyingList";
 
 export const Menu = () => {
     const { removeModal } = useAppSelector(

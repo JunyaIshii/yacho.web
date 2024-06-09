@@ -1,8 +1,8 @@
-import { useClickOutside } from "@frontend/features/admin/hooks/useClickOutSide";
 import React, { useRef, useState } from "react";
 import { useAppDispatch } from "../../../store/store-hooks";
 import { openRemoveUserModal, updateSiteMember } from "../store/AdminStore";
 import { SiteMember } from "../types/Admin";
+import { useClickOutside } from "../hooks/useClickOutSide";
 
 export const Member = ({
     siteMemberId,

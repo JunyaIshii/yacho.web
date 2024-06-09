@@ -1,7 +1,8 @@
-import { RootState } from "@frontend/store/store";
-import { useAppSelector } from "@frontend/store/store-hooks";
 import React from "react";
 import { Navigate, Outlet, useParams } from "react-router-dom";
+import { userInfo } from "../../features/auth/types/User";
+import { RootState } from "../../store/store";
+import { useAppSelector } from "../../store/store-hooks";
 
 export const useRoutes = () => {
     const { authToggle, userInfo } = useAppSelector(
@@ -13,7 +14,7 @@ export const useRoutes = () => {
     const selectedSiteId = parseInt(siteId ?? "", 10);
 
     const AdminRoutes = () => {
-        const authority = userInfo?.find((info) => {
+        const authority = userInfo?.find((info: userInfo) => {
             return info.siteId === selectedSiteId;
         })?.authority;
         const adminAuth = authority === 0;
