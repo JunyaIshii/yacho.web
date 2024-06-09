@@ -1,7 +1,7 @@
-import { resetState } from "@frontend/store/ResetState";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { surveyingList, surveyingListState } from "../types/SurveyingList";
+import { resetState } from "../../../store/ResetState";
 
 const initialState: surveyingListState = {
     surveyingList: null,

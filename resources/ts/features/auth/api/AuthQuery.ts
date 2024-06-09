@@ -1,5 +1,3 @@
-import { SESSION_KEY } from "@frontend/config/initialize";
-import { VALIDATE_MESSAGE_LOGIN_FAILED } from "@frontend/config/messages";
 import { AxiosError } from "axios";
 import { useCookies } from "react-cookie";
 import { useMutation } from "react-query";
@@ -14,6 +12,8 @@ import {
 } from "../../../store/MainSlice";
 import { useAppDispatch } from "../../../store/store-hooks";
 import { login, logout, register } from "./authAPI";
+import { SESSION_KEY } from "../../../config/initialize";
+import { VALIDATE_MESSAGE_LOGIN_FAILED } from "../../../config/messages";
 
 interface ErrorResponse {
     message: string;

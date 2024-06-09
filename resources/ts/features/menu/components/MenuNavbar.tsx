@@ -1,17 +1,17 @@
-import { SESSION_KEY } from "@frontend/config/initialize";
-import { useLogout } from "@frontend/features/auth/api/AuthQuery";
-import {
-    closeDropList,
-    openAddSiteModal,
-    openDropList,
-} from "@frontend/store/MainSlice";
-import { resetState } from "@frontend/store/ResetState";
-import { RootState } from "@frontend/store/store";
 import React, { useEffect, useRef } from "react";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../store/store-hooks";
 import DropList from "./DropList";
+import { SESSION_KEY } from "../../../config/initialize";
+import {
+    openAddSiteModal,
+    closeDropList,
+    openDropList,
+} from "../../../store/MainSlice";
+import { resetState } from "../../../store/ResetState";
+import { RootState } from "../../../store/store";
+import { useLogout } from "../../auth/api/AuthQuery";
 
 const MenuNavbar = () => {
     const dispatch = useAppDispatch();

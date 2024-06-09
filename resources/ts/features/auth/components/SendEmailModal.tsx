@@ -1,10 +1,10 @@
-import {
-    emailErrorMessage,
-    VALIDATE_EMAIL_PATTERN,
-} from "@frontend/config/validate-pattern";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import {
+    VALIDATE_EMAIL_PATTERN,
+    emailErrorMessage,
+} from "../../../config/validate-pattern";
 
 interface SendEmaiModalProps {
     onClose: () => void;

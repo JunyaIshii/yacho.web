@@ -1,6 +1,6 @@
 import React from "react";
 import { surveyingData } from "../types/SurveyingData";
-import useSurveyingDataRow from "@frontend/features/data/hooks/useSurveyingDataRow";
+import useSurveyingDataRow from "../hooks/useSurveyingDataRow";
 
 export interface SurveyingDataRowProps {
     data: surveyingData;

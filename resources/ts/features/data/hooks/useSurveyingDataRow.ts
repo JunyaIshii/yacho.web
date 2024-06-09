@@ -1,7 +1,7 @@
-import { SurveyingDataRowProps } from "@frontend/features/data/components/SurveyingDataRow";
-import { updateSurveyingData } from "@frontend/features/data/store/SurveyingDataSlice";
-import { useAppDispatch } from "@frontend/store/store-hooks";
 import { useEffect, useState } from "react";
+import { useAppDispatch } from "../../../store/store-hooks";
+import { SurveyingDataRowProps } from "../components/SurveyingDataRow";
+import { updateSurveyingData } from "../store/SurveyingDataSlice";
 
 function useSurveyingDataRow(props: SurveyingDataRowProps) {
     const { data, index, authority, ihValue, onIhValuesChange } = props;
