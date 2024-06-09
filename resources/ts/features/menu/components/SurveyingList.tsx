@@ -4,8 +4,8 @@ import { surveyingList } from "../types/SurveyingList";
 import { AddButton } from "./AddButton";
 import { SearchBox } from "./SearchBox";
 import SLRecord from "./SLRecord";
-import { Loading } from "@frontend/components/Loading";
-import { useAppSelector } from "@frontend/store/store-hooks";
+import { Loading } from "../../../components/Loading";
+import { useAppSelector } from "../../../store/store-hooks";
 
 const SurveyingList = () => {
     const { sortSurveyingList } = useAppSelector(

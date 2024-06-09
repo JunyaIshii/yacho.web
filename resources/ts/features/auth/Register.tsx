@@ -1,12 +1,3 @@
-import {
-    emailErrorMessage,
-    passwordConfirmErrorMessage,
-    passwordErrorMessage,
-    userNameErrorMessage,
-    VALIDATE_EMAIL_PATTERN,
-    VALIDATE_PASSWORD_PATTERN,
-    VALIDATE_USER_NAME_PATTERN,
-} from "@frontend/config/validate-pattern";
 import axios from "axios";
 import React from "react";
 import { Helmet } from "react-helmet";
@@ -16,6 +7,15 @@ import { setError } from "../../store/MainSlice";
 import { RootState } from "../../store/store";
 import { useAppDispatch, useAppSelector } from "../../store/store-hooks";
 import { useRegister } from "../auth/api/AuthQuery";
+import {
+    VALIDATE_USER_NAME_PATTERN,
+    userNameErrorMessage,
+    VALIDATE_EMAIL_PATTERN,
+    emailErrorMessage,
+    VALIDATE_PASSWORD_PATTERN,
+    passwordErrorMessage,
+    passwordConfirmErrorMessage,
+} from "../../config/validate-pattern";
 
 export const Register = () => {
     const {

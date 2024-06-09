@@ -6,12 +6,15 @@
         "target": "es2022",
 
         "baseUrl": "./",
-        "paths": {
-            "@frontend/*": ["resources/ts/*"]
-        },
+        // "paths": {
+        //     "@frontend/*": ["resources/ts/*"]
+        // },
+
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "moduleResolution": "node"
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "moduleResolution": "Bundler"
     }
 }

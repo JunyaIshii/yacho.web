@@ -1,9 +1,6 @@
-import {
-    setSearchValue,
-    searchDone,
-} from "@frontend/features/menu/store/SurveyingListSlice";
-import { useAppDispatch } from "@frontend/store/store-hooks";
 import React from "react";
+import { useAppDispatch } from "../../../store/store-hooks";
+import { setSearchValue, searchDone } from "../store/SurveyingListSlice";
 
 export const SearchBox = () => {
     const dispatch = useAppDispatch();

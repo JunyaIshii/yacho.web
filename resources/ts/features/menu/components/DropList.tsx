@@ -1,8 +1,8 @@
-import { userInfo } from "@frontend/features/auth/types/User";
-import { fetchSurveyingList } from "@frontend/features/menu/store/SurveyingListSlice";
-import { closeDropList, selectSite } from "@frontend/store/MainSlice";
-import { useAppDispatch } from "@frontend/store/store-hooks";
 import React from "react";
+import { closeDropList, selectSite } from "../../../store/MainSlice";
+import { useAppDispatch } from "../../../store/store-hooks";
+import { userInfo } from "../../auth/types/User";
+import { fetchSurveyingList } from "../store/SurveyingListSlice";
 
 const DropList = ({ siteName, siteId }: Partial<userInfo>) => {
     const dispatch = useAppDispatch();

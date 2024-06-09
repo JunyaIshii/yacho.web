@@ -1,15 +1,15 @@
-import { userInfo } from "@frontend/features/auth/types/User";
-import { useData } from "@frontend/features/data/hooks/useData";
-import { setSelectedSurveyingListId } from "@frontend/features/data/store/SurveyingDataSlice";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "../../../store/store";
+import { useAppDispatch, useAppSelector } from "../../../store/store-hooks";
+import { userInfo } from "../../auth/types/User";
+import { useData } from "../../data/hooks/useData";
+import { setSelectedSurveyingListId } from "../../data/store/SurveyingDataSlice";
 import {
     openRemoveModal,
     updateSurveyingList,
-} from "@frontend/features/menu/store/SurveyingListSlice";
-import { surveyingList } from "@frontend/features/menu/types/SurveyingList";
-import { RootState } from "@frontend/store/store";
-import { useAppDispatch, useAppSelector } from "@frontend/store/store-hooks";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+} from "../store/SurveyingListSlice";
+import { surveyingList } from "../types/SurveyingList";
 
 const SLRecord = ({
     surveyingListId,

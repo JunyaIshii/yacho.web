@@ -1,12 +1,12 @@
-import { Loading } from "@frontend/components/Loading";
-import useSurveyingData from "@frontend/features/data/hooks/useSurveyingData";
-import { RootState } from "@frontend/store/store";
-import { useAppSelector } from "@frontend/store/store-hooks";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { SurveyingDataNavbar } from "./components/SurveyingDataNavbar";
 import { SurveyingDataRow } from "./components/SurveyingDataRow";
 import { surveyingData } from "./types/SurveyingData";
+import { Loading } from "../../components/Loading";
+import { RootState } from "../../store/store";
+import { useAppSelector } from "../../store/store-hooks";
+import useSurveyingData from "./hooks/useSurveyingData";
 
 export const Surveying = () => {
     const { loading } = useAppSelector(

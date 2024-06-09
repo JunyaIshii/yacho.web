@@ -2,7 +2,7 @@ import React from "react";
 import { RootState } from "../../../store/store";
 import { useAppSelector } from "../../../store/store-hooks";
 import { Member } from "./Member";
-import { SiteMember } from "@frontend/features/admin/types/Admin";
+import { SiteMember } from "../types/Admin";
 
 export const MemberList = () => {
     const { siteMembers } = useAppSelector((state: RootState) => state.admin);

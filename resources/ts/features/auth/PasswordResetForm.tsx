@@ -1,15 +1,15 @@
-import {
-    UPDATE_NEW_PASSWORD,
-    VALIDATE_MESSAGE_PASSWORD_LINGTH,
-    VALIDATE_MESSAGE_PASSWORD_NO_MATCH,
-    VALIDATE_MESSAGE_REQUIRED,
-} from "@frontend/config/messages";
-import { VALIDATE_PASSWORD_PATTERN } from "@frontend/config/validate-pattern";
 import axios from "axios";
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Link, useLocation } from "react-router-dom";
+import {
+    UPDATE_NEW_PASSWORD,
+    VALIDATE_MESSAGE_REQUIRED,
+    VALIDATE_MESSAGE_PASSWORD_LINGTH,
+    VALIDATE_MESSAGE_PASSWORD_NO_MATCH,
+} from "../../config/messages";
+import { VALIDATE_PASSWORD_PATTERN } from "../../config/validate-pattern";
 
 interface IFormInput {
     password: string;

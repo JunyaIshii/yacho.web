@@ -1,7 +1,7 @@
-import { mainState, userInfo } from "@frontend/features/auth/types/User";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { resetState } from "./ResetState";
+import { mainState, userInfo } from "../features/auth/types/User";
 
 const initialState: mainState = {
     loginUser: {

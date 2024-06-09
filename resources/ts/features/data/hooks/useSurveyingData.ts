@@ -1,10 +1,10 @@
-import { userInfo } from "@frontend/features/auth/types/User";
-import { fetchSurveyingData } from "@frontend/features/data/store/SurveyingDataSlice";
-import { surveyingList } from "@frontend/features/menu/types/SurveyingList";
-import { RootState } from "@frontend/store/store";
-import { useAppDispatch, useAppSelector } from "@frontend/store/store-hooks";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { RootState } from "../../../store/store";
+import { useAppDispatch, useAppSelector } from "../../../store/store-hooks";
+import { userInfo } from "../../auth/types/User";
+import { surveyingList } from "../../menu/types/SurveyingList";
+import { fetchSurveyingData } from "../store/SurveyingDataSlice";
 
 function useSurveyingData() {
     const dispatch = useAppDispatch();

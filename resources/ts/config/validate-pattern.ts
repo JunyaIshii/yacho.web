@@ -1,9 +1,9 @@
+import { FieldErrors, FieldValues } from "react-hook-form";
 import {
+    VALIDATE_MESSAGE_REQUIRED,
     VALIDATE_MESSAGE_EMAIL_FORMAT,
     VALIDATE_MESSAGE_MAX_LENGTH,
-    VALIDATE_MESSAGE_REQUIRED,
-} from "@frontend/config/messages";
-import { FieldErrors, FieldValues } from "react-hook-form";
+} from "./messages";
 
 export const VALIDATE_EMAIL_PATTERN = {
     required: true,

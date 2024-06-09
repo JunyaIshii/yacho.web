@@ -1,7 +1,7 @@
-import AdminReducer from "@frontend/features/admin/store/AdminStore";
-import SurveyingDataReducer from "@frontend/features/data/store/SurveyingDataSlice";
-import SurveyingListReducer from "@frontend/features/menu/store/SurveyingListSlice";
 import { configureStore } from "@reduxjs/toolkit";
+import AdminReducer from "../features/admin/store/AdminStore";
+import SurveyingDataReducer from "../features/data/store/SurveyingDataSlice";
+import SurveyingListReducer from "../features/menu/store/SurveyingListSlice";
 import MainReducer from "./MainSlice";
 
 export const store = configureStore({
