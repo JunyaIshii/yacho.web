@@ -1,12 +1,12 @@
+import { AddModal } from "@frontend/components/AddModal";
+import { RemoveCheckModal } from "@frontend/components/RemoveCheckModal";
+import { AdminNavbar } from "@frontend/features/admin/component/AdminNavbar";
+import { MemberList } from "@frontend/features/admin/component/MemberList";
+import useAdmin from "@frontend/features/admin/hooks/useAdmin";
+import { RootState } from "@frontend/store/store";
+import { useAppSelector } from "@frontend/store/store-hooks";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { AddModal } from "../../components/AddModal";
-import { RemoveCheckModal } from "../../components/RemoveCheckModal";
-import { RootState } from "../../store/store";
-import { useAppSelector } from "../../store/store-hooks";
-import { AdminNavbar } from "./component/AdminNavbar";
-import { MemberList } from "./component/MemberList";
-import useAdmin from "@frontend/features/admin/hooks/useAdmin";
 
 export const Admin = () => {
     useAdmin();

@@ -16,7 +16,7 @@
 2. 測量データを保存し、グループ内で共有・閲覧が可能な機能
 3. 測量データをエクセル形式で出力できる機能
 
-## 開発環境
+## 使用技術
 
 -   フロントエンド：React/TypeScript/Redux
 -   バックエンド：Laravel
@@ -27,6 +27,10 @@
 ## サイトページ
 
 -   停止中
+
+## AWS
+
+-   接続：ssh -i "yacho-web.pem" ec2-user@ec2-52-68-129-171.ap-northeast-1.compute.amazonaws.com
 
 ## ソースコード
 
