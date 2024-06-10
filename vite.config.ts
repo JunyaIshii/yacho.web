@@ -8,9 +8,14 @@ export default defineConfig({
             input: ["resources/ts/app/app.tsx"],
             refresh: true,
         }),
-        react(),
+        react({
+            include: /\.tsx$/,
+        }),
         // tsconfigPaths(),
     ],
+    build: {
+        outDir: "public/build",
+    },
     // resolve: {
     //     alias: {
     //         "@": "/resources/ts",
