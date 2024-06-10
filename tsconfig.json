@@ -16,5 +16,6 @@
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
         "moduleResolution": "Bundler"
-    }
+    },
+    "include": ["resources/ts/**/*.ts", "resources/ts/**/*.tsx"]
 }
