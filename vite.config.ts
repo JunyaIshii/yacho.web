@@ -14,7 +14,17 @@ export default defineConfig({
         // tsconfigPaths(),
     ],
     build: {
+        manifest: true,
         outDir: "public/build",
+        assetsDir: ".",
+        rollupOptions: {
+            input: "resources/ts/app/app.tsx",
+            output: {
+                entryFileNames: "assets/[name]-[hash].js",
+                chunkFileNames: "assets/[name]-[hash].js",
+                assetFileNames: "assets/[name]-[hash][extname]",
+            },
+        },
     },
     // resolve: {
     //     alias: {
