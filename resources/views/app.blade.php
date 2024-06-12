@@ -15,7 +15,7 @@
 	@else
         <!-- 本番環境用 -->
         @php
-	$manifestPath = public_path('build/.vite/manifest.json');
+	$manifestPath = public_path('build/manifest.json');
             if (file_exists($manifestPath)) {
                 $manifest = json_decode(file_get_contents($manifestPath), true);
             } else {
@@ -26,10 +26,10 @@
         $cssFiles = $manifest['resources/ts/app/app.tsx']['css'] ?? [];
         @endphp
         @foreach ($cssFiles as $cssFile)
-            <link rel="stylesheet" href="{{ secure_asset('build/' . $cssFile) }}">
+            <link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}">
         @endforeach
         @if ($jsFile)
-            <script src="{{ secure_asset('build/' . $jsFile) }}" defer></script>
+            <script src="{{ asset('build/' . $jsFile) }}" defer></script>
         @endif
     @endif
 </head>
