@@ -26,11 +26,7 @@
 
 ## サイトページ
 
--   http://www.yacho-web.com
-
-## AWS
-
--   接続：ssh -i "yacho-web.pem" ec2-user@ec2-13-113-201-170.ap-northeast-1.compute.amazonaws.com
+-   https://www.yacho-web.com
 
 ## ソースコード
 
